@@ -1,9 +1,11 @@
+[![CircleCI](https://circleci.com/gh/trevonerd/docker-cypress-runner.svg?style=svg)](https://circleci.com/gh/trevonerd/docker-cypress-runner)
+
 # Docker Cypress Runner
 
 A docker image with Cypress installed, ready for your E2E needs.
 It's based on cypress/browsers:node10.16.0-chrome77-ff71, which includes Chrome 77 and Firefox 71.
 
-See it in Docker hub: https://cloud.docker.com/repository/docker/rdelafuente/cypress
+See it in Docker hub: https://hub.docker.com/r/trevonerd/cypress
 
 There is a CircleCI hourly build that pulls the latest Cypress, tags it, and pushes it.
 
@@ -18,7 +20,7 @@ docker run -v /my/project:/workdir trevonerd/cypress
 ### Or build your own image:
 
 ```dockerfile
-FROM    trevonerd/cypress:3.1.3
+FROM    trevonerd/cypress:latest
 ADD     cypress cypress.json /workdir/
 ```
 
@@ -32,8 +34,6 @@ docker run trevonerd/cypress cypress run --spec ... --reporter ...
 You will find Cypress 4.3.0, for example, in trevonerd/cypress:4.3.0
 
 You will also find any new Cypress versions published at most 1 hour after they reach the yarn repos.
-
-In the unlikely case you don't want to pin down a Cypress version, you can just use trevonerd/cypress:latest for... well, for the latest Cypress.
 
 ## Why does this exist
 
